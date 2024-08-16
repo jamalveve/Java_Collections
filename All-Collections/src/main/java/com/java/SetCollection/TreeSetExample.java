@@ -26,7 +26,7 @@ public class TreeSetExample {
         
         
         System.out.println("Higher than 'Banana': " + treeSet.higher("Banana"));
-        
+        System.out.println("lowyer than 'Banana': " + treeSet.lower("Banana"));
         System.out.println(treeSet.ceiling("rebbbCherry"));
         System.out.println(treeSet.ceiling("Banana"));
         System.out.println(treeSet.ceiling("Datesssss"));//doubt
