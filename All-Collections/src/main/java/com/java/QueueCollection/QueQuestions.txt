@@ -1,0 +1,20 @@
+Q #1) What is the Priority queue in Java?
+
+Answer: A special queue in which all the elements of the queue are ordered as per natural ordering or using a custom comparator is called the Priority queue. It does not follow the FIFO order.
+
+Q #2) How do you set a Max Priority queue in Java?
+
+Answer: We can set a Max Priority Queue in Java using a custom comparator so that the head of the queue will return the largest element in the queue.
+
+Q #3) Does the Priority queue allow duplicates Java?
+
+Answer: Yes. Priority Queue allows duplicate values.
+
+Q #4) Is Java Priority queue max or min?
+
+Answer: By default, the priority queue in Java is min Priority queue with natural ordering. To make it max, we have to use a custom comparator so that head of the queue returns the greatest element in the queue.
+
+
+Q #5) Is a Priority Queue sorted?
+
+Answer: By default, the head of the queue is sorted and the Priority queue has the least element as its head. The rest of the elements is ordered when required.

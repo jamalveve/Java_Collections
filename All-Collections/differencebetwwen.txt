@@ -1,0 +1,65 @@
+1. Differentiate between HashSet and TreeSet. When would you prefer TreeSet to HashSet?
+Following are the differences between HashSet and TreeSet:-
+
+Internal implementation and speed
+HashSet: For search, insert, and remove operations, it takes constant time on average. TreeSet is slower than HashSet. A hash table is used to implement HashSet.
+TreeSet: For search, insert, and delete, TreeSet takes O(Log n), which is higher than HashSet. TreeSet, on the other hand, preserves ordered data. Higher() (Returns the least higher element), floor(), ceiling(), and other operations are also supported. In TreeSet, these operations are likewise O(Log n), and HashSet does not implement them. A Self-Balancing Binary Search Tree is used to implement TreeSet (Red Black Tree). In Java, TreeSet is backed by TreeMap.
+Way of storing elements 
+The elements of a HashSet are not ordered. In Java, the TreeSet class keeps objects in a Sorted order defined by the Comparable or Comparator methods. By default, TreeSet components are sorted in ascending order. It has a number of methods for dealing with ordered sets, including first(), last(), headSet(), tailSet(), and so on.
+Allowing Null values 
+Null objects are allowed in HashSet. TreeSet does not allow null objects and throws a NullPointerException. This is because TreeSet compares keys using the compareTo() method, which throws java.lang. NullPointerException.
+Comparison
+HashSet compares two objects in a Set and detects duplicates using the equals() method. For the same purpose, TreeSet employs the compareTo() method. If equals() and compareTo() are not consistent, that is, if equals() returns true for two equal objects but compareTo() returns zero, the contract of the Set interface will be broken, allowing duplicates in Set implementations like TreeSet.
+Following are the cases when TreeSet is preferred to HashSet :
+
+Instead of unique elements, sorted unique elements are required. TreeSet returns a sorted list that is always in ascending order.
+The locality of TreeSet is higher than that of HashSet. If two entries are close in order, TreeSet places them in the same data structure and hence in memory, but HashSet scatters the entries over memory regardless of the keys to which they are linked.
+To sort the components, TreeSet employs the Red-Black tree method. TreeSet is a fantastic solution if you need to do read/write operations regularly.
+_________________________________________________________________________________________________
+7. Differentiate between ArrayList and Vector in java.
+Following are the differences between ArrayList and Vector in java :
+
+Vector is synchronized, which means that only one thread can access the code at a time, however, ArrayList is not synchronized, which means that multiple threads can operate on ArrayList at the same time. In a multithreading system, for example, if one thread is executing an add operation, another thread can be performing a removal action. 
+If multiple threads access ArrayList at the same time, we must either synchronize the code that updates the list fundamentally or enable simple element alterations. The addition or deletion of element(s) from the list is referred to as structural change. It is not a structural change to change the value of an existing element.
+
+Data Growth: Both ArrayList and Vector dynamically expand and shrink to make the most use of storage space, but the manner they do it is different. If the number of elements in an array exceeds its limit, ArrayList increments 50% of the current array size, while vector increments 100%, thereby doubling the current array size.
+Performance: ArrayList is faster than vector operations because it is non-synchronized, but vector operations are slower since they are synchronized (thread-safe). When one thread works on a vector, it acquires a lock on it, requiring any other threads working on it to wait until the lock is released.
+Vector can traverse over its elements using both Enumeration and Iterator, whereas ArrayList can only traverse using Iterator.
+
+_________________________________________________________________________________________________
+14. Differentiate between Set and Map in Java.
+The Set interface is provided by the Java.util package. The set interface is established by extending the collection interface. We can't add the same element to it since it won't let us. Because it contains elements in a sorted order, it does not keep the insertion order. The Set interface in Java is used to build the mathematical Set.
+
+Map is similar to Set in that it is used to store a collection of objects as a single entity. A key-value pair is used to store each object. Because each value is associated with a unique key, we can quickly obtain the value using just the key.
+
+Set	Map
+It cannot have values that are repeated.                                It is not possible to add the same elements to a set. Only the unique value is stored in each class that implements the Set interface.	It is possible for different keys to have the same value. The map has a unique key and values that are repeated. 
+Using the keyset() and entryset() methods,	                      It is not possible to iterate across map elements. To iterate the elements, we must convert Map to Set.
+ we can quickly iterate the Set items.
+The Set interface does not keep track of insertion order.           Some of its classes, such as LinkedHashSet, however, keep the insertion order. 	The Map does not keep track of the insertion sequence. Some Map classes, such as TreeMap and LinkedHashMap, do the same thing.
+
+_________________________________________________________________________________________________
+
+15. Differentiate between HashSet and HashMap.
+HashSet is a Set Interface implementation that does not allow duplicate values. The essential point is that objects stored in HashSet must override equals() and hashCode() methods to ensure that no duplicate values are stored in our set.
+
+HashMap is a Map Interface implementation that maps a key to a value. In a map, duplicate keys are not permitted.
+
+check images
+
+
+_________________________________________________________________________________________________
+17. Differentiate between Array and ArrayList in Java.
+Following are the differences between Arrays and ArrayLists in Java :
+
+
+Java provides arrays as a fundamental functionality. ArrayList is a component of Java's collection system. As a result, It is used to access array members, while ArrayList provides a set of methods for accessing and modifying components.
+ArrayList is not a fixed-size data structure, but Array is. When creating an ArrayList object, there is no need to provide its size. Even if we set a maximum capacity, we can add more parts afterward.
+Arrays can include both primitive data types and class objects, depending on the array's definition. ArrayList, on the other hand, only accepts object entries and not primitive data types. Note that when we use arraylist.add(1);, the primitive int data type is converted to an Integer object.
+Members of ArrayList are always referencing to objects at various memory locations since ArrayList can't be constructed for primitive data types  As a result, the actual objects in an ArrayList are never kept in the same place. The references to the real items are maintained in close proximity. Whether an array is primitive or an object depends on the type of the array. Actual values for primitive kinds are continuous regions, whereas allocation for objects is equivalent to ArrayList.
+Many other operations, such as indexOf() and delete(), are supported by Java ArrayList. Arrays do not support these functions.
+
+_________________________________________________________________________________________________
+
+
+

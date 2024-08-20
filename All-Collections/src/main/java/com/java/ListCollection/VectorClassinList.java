@@ -71,6 +71,9 @@ public class VectorClassinList {
 	
 		   vctoer4.addElement("jamal");
 		    System.out.println("vector 4 "+ vctoer4);
+		    
+		   String [] StringArray=vctoer4.toArray(new String[vctoer4.size()]);
+System.out.println(StringArray[2]);
 
 	}
  

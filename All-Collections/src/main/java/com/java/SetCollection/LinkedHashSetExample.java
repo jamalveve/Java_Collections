@@ -1,7 +1,10 @@
 package com.java.SetCollection;
 
 import java.util.LinkedHashSet;
-
+import java.util.List;
+import java.util.SequencedSet;
+import java.util.Collections;
+import java.util.Comparator;
 public class LinkedHashSetExample {
 	public static void main(String[] args) {
 		LinkedHashSet<String> lhs = new LinkedHashSet<>();
@@ -27,11 +30,32 @@ public class LinkedHashSetExample {
 //				System.out.println(str);
 //				aswe dont have remove copying it to anither set
 				lhsnew.add(str);
+//				lhsnew.remove(str);
+				
 			}
 		}
 		lhs = lhsnew;
-		System.out.println(lhs);
+		System.out.println("primting the lhs"+lhs);
+		
+		Comparator cmp=Collections.reverseOrder();
+//		Collections.sor also not there
+//		Collections.re
 
+		Collections.unmodifiableSet(lhsnew);
+		lhsnew.add("modifed");
+		System.out.println(lhsnew);
+		
+//		Collections.synchronizedList(lhsnew);not posisible	
+		
+//		from java 21
+		SequencedSet<String> set = new LinkedHashSet<>();
+		set.add("seqsetvalue1");
+		set.add("heelo");
+		set.add("jamyyy");
+		SequencedSet<String> reversedSet = set.reversed();
+		
+		System.out.println(reversedSet);
+		
 	}
 
 }

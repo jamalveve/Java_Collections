@@ -1,0 +1,10 @@
+What are the best practices for Java Collections Framework?
+Following are some of the best practices while using Java Collections:
+
+Programs should be written as interfaces, not implementations, so we can modify the implementation later.
+Whenever possible, use Generics to ensure type safety and avoid ClassCastExceptions.
+Choosing the appropriate type of collection based on the need. For example, if the size is fixed, we might want to use an Array over an ArrayList. When iterating over the Map, we should use LinkedHashMap. Set is the best way to avoid duplicates.
+Use immutable classes provided by JDK as keys in Map to avoid implementation of hashCode() and equals().
+In order to increase the readability of the code, we should use isEmpty() instead of finding the size of the collection and comparing it to zero.
+Rather than writing your own implementation, use the Collections utility
+class to get read-only, Synchronized, or empty collections instead. It enhances code reuse while resulting in greater stability.

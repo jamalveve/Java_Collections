@@ -1,7 +1,9 @@
 package com.java.ListCollection;
 
 import java.awt.geom.Line2D;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 public class LinkedListExample {
 	public static void main(String[] args) {
@@ -107,6 +109,18 @@ public class LinkedListExample {
 		System.out.println("popping first element"+linkedList.pop());
 		System.out.println("updated list" + linkedList);
 
-	
+		System.out.println(linkedListint);
+		List<Integer> read_only_list=Collections.unmodifiableList(linkedListint);
+		linkedListint.add(33);//add happems
+		System.out.println(linkedListint);     
+		try {
+		System.out.println("Trying to modify the ReadOnly ArrayList.");    
+                  
+		read_only_list.add(56);
+		}
+		catch (UnsupportedOperationException e) {
+	           System.out.println("The exception thrown is : " + e);
+	       }
+		
 	}
 }

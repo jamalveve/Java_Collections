@@ -1,5 +1,7 @@
 package com.java.SetCollection;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -44,6 +46,11 @@ public class HashSetMethods {
 		setInteger3.add(90);
 		setInteger3.add(100);
 
+//		Comparator cmp=Collections.reverseOrder();
+//		Collections.sort(setInteger3,cmp);
+		
+		
+		
 		System.out.println(setInteger.contains(setInteger3));
 
 		System.out.println(setInteger3.hashCode());
@@ -85,7 +92,6 @@ public class HashSetMethods {
 
 		Object[] setToArray = setInteger.toArray(new Object[setInteger.size()]);
 		System.out.println("set to array 2" + setInteger);
-
 		for (Object obj : setToArray) {
 			System.out.print(obj + " "); // Output may vary in order: 1 2 3 4
 		}
@@ -125,7 +131,9 @@ public class HashSetMethods {
 		System.out.println("printing set of strings" + setOfSTrings);
 //enchanced for loop->prints multiple times
 		for (String var : setOfSTrings) {
-			System.out.println(setOfSTrings);
+//			if(var.equals("jamal"))
+//				setOfSTrings.remove(var);//conncurrent modifuaction exception
+			System.out.println("printing set of string"+setOfSTrings);
 
 		}
 
@@ -166,9 +174,15 @@ public class HashSetMethods {
 
 		Iterator<String> stringIterator = setOfSTrings.iterator();
 		while (stringIterator.hasNext()) {
-			System.out.println(stringIterator.next());
+			String current=stringIterator.next();
+			if(current.contains("i")) {
+				stringIterator.remove();
+				System.out.println("String which has letter i is removed"+current);
+			}
 
 		}
+		System.out.println("print the elmemts"+setOfSTrings);
+
 		System.out.println("using dcending iyterator");
 
 		

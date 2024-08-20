@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,9 +19,13 @@ public class ArrayListExample {
 		nums.add(8);
 
 		nums.add(21);
-		nums.add(null);// doubt
-		nums.add(null);
-
+//		nums.add(null);// doubt
+//		nums.add(null);
+		Collections.sort(nums, Collections.reverseOrder());
+		System.out.println(nums);
+		
+		Collections.synchronizedList(nums);
+		
 		for (Integer ints : nums) {
 //		if(ints %2==0) {//here we are getting nullpointerexception bz=cz we are trying to check null also in iteration
 			// so we can wrote like this
@@ -178,7 +183,7 @@ public class ArrayListExample {
 		System.out.println("Original List: " + originalList);
 		System.out.println("Cloned List: " + clonedList);
 	
-	
+	Iterator <String> itr=originalList.iterator();
 	}
 
 }
