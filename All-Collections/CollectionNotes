@@ -464,3 +464,30 @@ y it extends abstractcollection dlass?
 refer above
 
 
+_----------------------------------------------------
+
+HashSet
+Use When:
+You need fast insertion, deletion, and lookup operations (average O(1) time complexity).
+Order of elements is not important.
+You want to store unique elements.
+Examples:
+Storing a collection of unique user IDs where order does not matter.
+LinkedHashSet
+Use When:
+You need the benefits of a HashSet (fast operations) but also want to maintain the insertion order of elements.
+You need to iterate through the set in the order elements were added.
+Examples:
+Maintaining a unique collection of items while preserving the order of addition (e.g., a unique list of visited pages).
+TreeSet
+Use When:
+You require elements to be sorted (natural ordering or custom comparator).
+You need range views (e.g., retrieving elements within a specific range).
+You want to maintain uniqueness while having sorted elements.
+Examples:
+Storing a collection of scores that need to be kept in order for leaderboard purposes.
+Summary
+HashSet for fast operations without concern for order.
+LinkedHashSet for fast operations with ordered elements.
+TreeSet for sorted elements with additional functionalities.
+
