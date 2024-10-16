@@ -1,0 +1,142 @@
+what is deserializationa nd serialization concept in java why it is used where it is used?
+#########################################################################################
+
+Serialization and deserialization are fundamental concepts in Java used to convert objects to a byte stream and vice versa.
+and it plays a major role in json and xml convertion also.
+
+Serialization
+^^^^^^^^^^^^^^
+Definition: 
+************
+Serialization is the process of converting an object into a byte stream. This byte stream can then be saved to a file, sent over a network, or stored in a database.
+Purpose: 
+*********
+The main purpose is to persist the state of an object so it can be reconstructed later.
+
+Use Cases:
+**********
+Saving objects to a file: When you want to store the state of an object for future use.
+Sending objects over a network: Useful in distributed systems or remote method invocation (RMI) where objects need to be sent to a remote server.
+Caching: Storing objects in a cache for faster retrieval later.
+
+____________________________________________________________________________________________________________________________________________
+
+Deserialization
+^^^^^^^^^^^^^^^^
+Definition:
+*************
+ Deserialization is the reverse process of serialization. It converts a byte stream back into an object.
+Purpose:
+********* 
+The goal is to recreate the object and its state from the byte stream.
+
+Use Cases:
+***************
+Reading objects from a file: When retrieving saved object data.
+Receiving objects over a network: Reconstructing objects that were sent from a remote server.
+Restoring cached objects: Recreating objects stored in cache for efficient access.
+
+____________________________________________________________________________________________________________________________________________
+Serializable ?
+##################
+//	 A marker interface with no methods that tells the JVM that the class can be serialized.
+transient Keyword: Used for fields that should not be serialized.(exampele password)
+It’s good practice to define a serialVersionUID to ensure version compatibility during deserialization.
+
+how it helps in parsing json datas ?
+###################################
+
+
+Serialization and deserialization play a crucial role in parsing JSON data in Java. Here's how they work together with JSON processing:
+
+____________________________________________________________________________________________________________________________________________
+
+Understanding JSON Parsing
+^^^^^^^^^^^^^^^^^^^^^^^
+
+1.Using JACKSON Libarary
+########################
+Serialization to JSON:
+*******************
+When you convert Java objects to JSON format, this is a form of serialization.
+ Libraries like Jackson or Gson take Java objects and convert them into JSON strings, which can be easily transmitted or stored.
+Example:
+^^^^^^^
+           ObjectMapper objectMapper = new ObjectMapper();
+           
+           //Serialization:-
+           Person example = new Person("Alice", 30);
+          String jsonString = objectMapper.writeValueAsString(example);
+
+Deserialization from JSON:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conversely, when you receive JSON data (for instance, from a web API), you can convert this JSON string back into Java objects. This process is deserialization.
+Example:
+^^^^^^^
+
+           //DeSerialization:-
+           String jsonString = "{\"name\":\"Alice\",\"age\":30}";
+          Example example = objectMapper.readValue(jsonString, Example.class);
+
+
+
+1.Using GSON Libarary
+########################
+
+            Gson gson = new Gson();
+
+			// Serialization
+			Person person2 = new Person("Alice", 5);
+			String jsonString2 = gson.toJson(person2);
+			System.out.println("JSON: " + jsonString2);
+
+			// Deserialization
+			Person deserializedPerson = gson.fromJson(jsonString2, Person.class);
+			System.out.println("Name: " + deserializedPerson.getName() + ", Age: " + deserializedPerson.getAge()); 
+
+____________________________________________________________________________________________________________________________________________
+
+To check the .ser file 
+$$$$$$$$$$$$$$$$$$$$$$$
+
+cd /Users/venkat/git/Java_Collections/All-Collections
+Check if the File Exists:
+
+List the files in the directory to confirm that exampleFile.ser is there:
+bash
+
+ls -l
+
+View the File Contents:
+
+Now you can use the following commands to inspect the contents of the file:
+Hexdump:
+
+hexdump -C exampleFile.ser
+xxd:
+
+xxd exampleFile.ser
+
+
+
+
+____________________________________________________________________________________________________________________________________________
+
+Serialization Examples:
+#########################
+1.Saving User Preferences:When a user customizes their settings in an application (e.g., theme, font size), those preferences can be serialized to a file.
+ When the user reopens the application, the preferences can be deserialized to restore their previous settings.
+
+2.Caching Data:Applications often cache data to improve performance. For example, a web application might serialize user session data to disk, 
+allowing it to quickly reload the session without needing to query the database every time.
+
+3.Sending objects over a network: Useful in distributed systems or remote method invocation (RMI) where objects need to be sent to a remote server.
+
+
+Deserialization Examples:
+##########################
+1.Loading User Preferences:
+
+2.Restoring Cached Data:
+
+
